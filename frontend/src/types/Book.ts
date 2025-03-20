@@ -6,6 +6,6 @@ export interface Book {
   isbn: string;
   classification: string;
   category: string;
-  pagecount: number;
+  pageCount: number;
   price: number;
 }
