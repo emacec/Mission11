@@ -34,16 +34,16 @@ namespace Mission11.Controllers
             return Ok(someObject);
         }
 
-        //[HttpGet("GetBookTypes")]
-        //public IActionResult GetBookTypes ()
-        //{
-        //    var bookTypes = _bookContext.Books
-        //        .Select(p => p.BookType)
-        //        .Distinct()
-        //        .ToList();
+        [HttpGet("GetBookTypes")]
+        public IActionResult GetBookTypes()
+        {
+            var bookTypes = _bookContext.Books
+                .Select(b => b.Category)
+                .Distinct()
+                .ToList();
 
-        //    return Ok(bookTypes);
-        //}
+            return Ok(bookTypes);
+        }
     }
 
 }

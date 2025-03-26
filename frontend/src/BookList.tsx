@@ -21,7 +21,7 @@ function BookList() {
       setTotalPages(Math.ceil(data.totalNumBooks / pageSize));
     };
     fetchBooks();
-  }, [pageSize, pageNum]);
+  }, [pageSize, pageNum, totalItems]);
 
   // Sorting function
   useEffect(() => {
