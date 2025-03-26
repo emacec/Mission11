@@ -34,13 +34,19 @@ namespace Mission11.Controllers
             return Ok(someObject);
         }
 
-        [HttpGet("FunctionalBooks")]
-        public IEnumerable<Book> GetFunctionalBooks()
-        {
-            var something = _bookContext.Books.Where(p => p.Category == "Functional").ToList();
-            return something;
-        }
+        //[HttpGet("GetBookTypes")]
+        //public IActionResult GetBookTypes ()
+        //{
+        //    var bookTypes = _bookContext.Books
+        //        .Select(p => p.BookType)
+        //        .Distinct()
+        //        .ToList();
+
+        //    return Ok(bookTypes);
+        //}
     }
 
 }
+
+
 

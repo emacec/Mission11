@@ -21,6 +21,6 @@ namespace Mission11.Data
         public int PageCount { get; set; }
         [Required]
         public float Price { get; set; }
-        
+        //public string? BookType { get; internal set; }
     }
 }
