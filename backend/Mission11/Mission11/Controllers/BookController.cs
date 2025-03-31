@@ -16,9 +16,17 @@ namespace Mission11.Controllers
 
 
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks(int pageHowMany = 5, int pageNum = 1)
+        public IActionResult GetBooks(int pageHowMany = 5, int pageNum = 1, [FromQuery] List<string>? bookTypes = null)
         {
-            var something = _bookContext.Books
+            var query = _bookContext.Books.AsQueryable();
+
+            if (bookTypes != null && bookTypes.Any())
+            {
+                query = query.Where(p => bookTypes.Contains(p.Category));
+            }
+
+
+            var something = query
                 .Skip((pageNum-1)* pageHowMany)
                 .Take(pageHowMany)
                 .ToList();
