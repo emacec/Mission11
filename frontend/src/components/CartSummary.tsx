@@ -109,6 +109,12 @@ const CartSummary = () => {
           )}
         </div>
       )}
+      {/* Bootstrap Alert for Empty Cart */}
+      {totalItems === 0 && (
+        <div className="alert alert-warning mt-2" role="alert">
+          Your cart is empty.
+        </div>
+      )}
     </div>
   );
 };
