@@ -1,26 +1,29 @@
 import './App.css';
+import CartSummary from './components/CartSummary';
 import { CartProvider } from './context/CartContext';
 import BuyPage from './pages/BuyPage';
 import CartPage from './pages/CartPage';
 import ProjectsPage from './pages/ProjectsPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// import Welcome from './Welcome';
-
 function App() {
   return (
-    <>
-      <CartProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<ProjectsPage />} />
-            <Route path="projects" element={<ProjectsPage />} />
-            <Route path="/buy/:title/:bokId/:price" element={<BuyPage />} />
-            <Route path="/cart" element={<CartPage />} />
-          </Routes>
-        </Router>
-      </CartProvider>
-    </>
+    <CartProvider>
+      <Router>
+        {/* Header with navigation and CartSummary */}
+        <header>
+          <CartSummary /> {/* This will appear on all pages */}
+        </header>
+
+        {/* Page Routes */}
+        <Routes>
+          <Route path="/" element={<ProjectsPage />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="/buy/:title/:bookId/:price" element={<BuyPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

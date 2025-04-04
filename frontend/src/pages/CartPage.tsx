@@ -40,14 +40,6 @@ function CartPage() {
           .reduce((sum, item) => sum + item.price * item.quantity, 0)
           .toFixed(2)}
       </h3>
-      <button
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="This will take you to checkout"
-        onClick={() => navigate('../components/CartSummary')}
-      >
-        Checkout
-      </button>
 
       <button
         data-bs-toggle="tooltip"
