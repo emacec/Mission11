@@ -22,7 +22,7 @@ namespace Mission11.Controllers
 
             if (bookTypes != null && bookTypes.Any())
             {
-                query = query.Where(p => bookTypes.Contains(p.Category));
+                query = query.Where(p => p.Category != null && bookTypes.Contains(p.Category));
             }
 
 
@@ -67,6 +67,11 @@ namespace Mission11.Controllers
         public IActionResult UpdateBook(int bookId, [FromBody] Book updatedBook)
         {
             var existingBook = _bookContext.Books.Find(bookId);
+
+             if (existingBook == null)
+            {
+                return NotFound(new { message = "Book not found" });
+            }
 
             existingBook.Title = updatedBook.Title;
             existingBook.Author = updatedBook.Author;
