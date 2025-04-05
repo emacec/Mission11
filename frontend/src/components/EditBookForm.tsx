@@ -54,7 +54,7 @@ const EditBookForm = ({ book, onSuccess, onCancel }: EditBookFormProps) => {
       <label>
         ISBN:
         <input
-          type="number"
+          type="text"
           name="isbn"
           value={formData.isbn}
           onChange={handleChange}
@@ -81,9 +81,18 @@ const EditBookForm = ({ book, onSuccess, onCancel }: EditBookFormProps) => {
       <label>
         Number of Pages:
         <input
-          type="text"
+          type="number"
           name="pageCount"
           value={formData.pageCount}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Price:
+        <input
+          type="number"
+          name="price"
+          value={formData.price}
           onChange={handleChange}
         />
       </label>

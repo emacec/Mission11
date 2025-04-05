@@ -90,9 +90,18 @@ const NewBookForm = ({ onSuccess, onCancel }: NewBookFormProps) => {
       <label>
         Number of Pages:
         <input
-          type="text"
+          type="number"
           name="pageCount"
           value={formData.pageCount}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Price:
+        <input
+          type="number"
+          name="price"
+          value={formData.price}
           onChange={handleChange}
         />
       </label>
